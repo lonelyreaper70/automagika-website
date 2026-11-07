@@ -1,0 +1,3650 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080c12">
+
+  <meta name="description"
+    content="AutoMagika Industries — student-led robotics, aerospace and intelligent systems. Engineering ideas into reality.">
+
+  <title>AutoMagika Industries | Engineering Beyond Limits</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   AUTOMAGIKA INDUSTRIES — MAIN STYLESHEET
+   File: style.css
+   ========================================================= */
+
+:root {
+  --bg: #080c12;
+  --bg-soft: #0b1119;
+  --panel: #101923;
+  --panel-light: #14212d;
+  --line: rgba(153, 193, 213, 0.14);
+  --line-bright: rgba(91, 226, 255, 0.32);
+  --text: #edf7fb;
+  --muted: #91a4b2;
+  --cyan: #65eaff;
+  --cyan-bright: #a3f4ff;
+  --blue: #589dff;
+  --purple: #9b87ff;
+  --green: #81f4c1;
+  --radius: 22px;
+  --radius-small: 13px;
+  --content-width: 1180px;
+  --header-height: 82px;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(41, 92, 123, 0.17), transparent 50%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+::selection {
+  color: #061016;
+  background: var(--cyan);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* BACKGROUND ATMOSPHERE */
+
+.ambient {
+  position: fixed;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.1;
+  pointer-events: none;
+  animation: ambient-drift 17s ease-in-out infinite alternate;
+}
+
+.ambient-one {
+  top: 18%;
+  left: -260px;
+  background: #176cff;
+}
+
+.ambient-two {
+  top: 58%;
+  right: -300px;
+  background: #00c9e8;
+  animation-delay: -7s;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.9);
+  }
+  to {
+    transform: translate3d(80px, -45px, 0) scale(1.15);
+  }
+}
+
+/* CURSOR GLOW */
+
+.cursor-glow {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(64, 222, 255, 0.075) 0%,
+    rgba(64, 222, 255, 0.025) 38%,
+    transparent 70%
+  );
+  transition: opacity 250ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-glow {
+    opacity: 1;
+  }
+}
+
+/* HEADER */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  padding: 0 max(28px, calc((100vw - var(--content-width)) / 2));
+  background: rgba(8, 12, 18, 0.82);
+  border-bottom: 1px solid rgba(153, 193, 213, 0.09);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  position: relative;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(101, 234, 255, 0.55);
+  border-radius: 13px;
+  color: var(--cyan);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  background: linear-gradient(
+    145deg,
+    rgba(101, 234, 255, 0.13),
+    rgba(88, 157, 255, 0.035)
+  );
+  box-shadow: inset 0 0 20px rgba(101, 234, 255, 0.06);
+}
+
+.brand-mark span,
+.auth-logo span {
+  color: #f4fcff;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-copy strong {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.brand-copy small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.6px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.main-nav a {
+  position: relative;
+  color: #a8b8c5;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: var(--cyan);
+  transition: right 220ms ease;
+}
+
+.main-nav a:hover {
+  color: var(--cyan-bright);
+}
+
+.main-nav a:hover::after {
+  right: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 43px;
+  height: 43px;
+  padding: 11px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 5px;
+  background: var(--text);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* BUTTONS */
+
+.button {
+  position: relative;
+  min-height: 47px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 12px 19px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05px;
+  cursor: pointer;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: #061017;
+  background: linear-gradient(110deg, var(--cyan-bright), var(--cyan));
+  box-shadow: 0 7px 26px rgba(49, 213, 247, 0.1);
+}
+
+.button-primary:hover {
+  box-shadow: 0 10px 34px rgba(49, 213, 247, 0.23);
+}
+
+.button-primary span {
+  font-size: 16px;
+}
+
+.button-ghost {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.025);
+  border-color: var(--line);
+}
+
+.button-ghost:hover {
+  border-color: var(--line-bright);
+  background: rgba(101, 234, 255, 0.055);
+}
+
+.button-small {
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+/* SHARED LAYOUT */
+
+.section-shell {
+  width: min(var(--content-width), calc(100% - 56px));
+  margin-inline: auto;
+}
+
+.section {
+  padding-top: 125px;
+  padding-bottom: 10px;
+}
+
+.section-heading {
+  margin-bottom: 42px;
+}
+
+.section-index {
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.section-heading h2,
+.contact-copy h2 {
+  margin: 18px 0 0;
+  font-size: clamp(34px, 5.3vw, 58px);
+  line-height: 1.13;
+  font-weight: 700;
+  letter-spacing: -2.7px;
+}
+
+.gradient-text {
+  color: var(--cyan);
+  background: linear-gradient(105deg, #c2faff 5%, #65eaff 42%, #8d9cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accent {
+  color: var(--cyan);
+}
+
+.muted {
+  color: #7f919f;
+}
+
+.section-description {
+  max-width: 610px;
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.large-copy {
+  margin: 0 0 23px;
+  font-size: clamp(22px, 3vw, 31px);
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  line-height: 1.55;
+}
+
+.body-copy {
+  max-width: 610px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.muted-small {
+  color: #7e93a1;
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+.mini-label {
+  color: var(--cyan);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 8px;
+  border: 1px solid rgba(101, 234, 255, 0.18);
+  border-radius: 6px;
+  color: #9cefff;
+  background: rgba(101, 234, 255, 0.045);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.tag-live {
+  color: var(--green);
+  border-color: rgba(129, 244, 193, 0.2);
+  background: rgba(129, 244, 193, 0.05);
+}
+
+.tag-future {
+  color: #b6aaff;
+  border-color: rgba(155, 135, 255, 0.24);
+  background: rgba(155, 135, 255, 0.06);
+}
+
+.tag-research {
+  color: #ffd58b;
+  border-color: rgba(255, 193, 90, 0.25);
+  background: rgba(255, 193, 90, 0.06);
+}
+
+.status-dot,
+.mini-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(129, 244, 193, 0.6);
+  flex-shrink: 0;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 55px;
+  padding-bottom: 100px;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #a8bfcc;
+  background: rgba(255, 255, 255, 0.018);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.hero h1 {
+  margin: 30px 0 22px;
+  font-size: clamp(43px, 6vw, 75px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -4.7px;
+}
+
+.hero-description {
+  max-width: 490px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  color: #7c919e;
+  font-size: 11px;
+}
+
+.note-line {
+  width: 28px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.hero-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 440px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 15%;
+  border-radius: 50%;
+  background: rgba(25, 144, 200, 0.11);
+  filter: blur(50px);
+}
+
+.orbit {
+  position: absolute;
+  width: min(100%, 410px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(101, 234, 255, 0.11);
+  border-radius: 50%;
+}
+
+.orbit-one {
+  transform: scale(1);
+  animation: orbit-breathe 7s ease-in-out infinite alternate;
+}
+
+.orbit-two {
+  width: min(84%, 344px);
+  border-style: dashed;
+  border-color: rgba(101, 234, 255, 0.15);
+  animation: orbit-rotate 40s linear infinite;
+}
+
+.orbit-two::before,
+.orbit-two::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 17px var(--cyan);
+}
+
+.orbit-two::before {
+  top: 19%;
+  left: 14%;
+}
+
+.orbit-two::after {
+  right: 6%;
+  bottom: 35%;
+  background: var(--purple);
+  box-shadow: 0 0 17px var(--purple);
+}
+
+.hero-core {
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid rgba(101, 234, 255, 0.25);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(101, 234, 255, 0.09), transparent 67%),
+    rgba(9, 18, 28, 0.82);
+  box-shadow:
+    0 0 75px rgba(45, 188, 234, 0.08),
+    inset 0 0 50px rgba(45, 188, 234, 0.035);
+  animation: core-float 5s ease-in-out infinite;
+}
+
+.core-symbol {
+  font-size: 65px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -9px;
+  color: var(--cyan);
+  text-shadow: 0 0 28px rgba(101, 234, 255, 0.2);
+}
+
+.core-symbol span {
+  color: #f5fdff;
+}
+
+.core-caption {
+  color: #8ea7b6;
+  font-size: 9px;
+  line-height: 1.7;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-align: center;
+}
+
+.floating-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(10, 19, 29, 0.85);
+  color: #a9c0cd;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  backdrop-filter: blur(10px);
+  animation: label-float 5s ease-in-out infinite alternate;
+}
+
+.floating-label .mini-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--cyan);
+}
+
+.label-top {
+  top: 13%;
+  right: 0;
+}
+
+.label-bottom {
+  left: 0;
+  bottom: 13%;
+  animation-delay: -2s;
+}
+
+.coordinate {
+  position: absolute;
+  color: #617887;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.coordinate-top {
+  top: 5%;
+  left: 6%;
+}
+
+.coordinate-bottom {
+  right: 3%;
+  bottom: 4%;
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  color: #738996;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.hero-bottom a {
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+@keyframes orbit-breathe {
+  from { transform: scale(0.97); opacity: 0.65; }
+  to { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes orbit-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes core-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes label-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-main {
+  padding-top: 5px;
+}
+
+.principles {
+  display: grid;
+  gap: 12px;
+}
+
+.principle-card {
+  display: grid;
+  grid-template-columns: 37px 1fr 20px;
+  gap: 15px;
+  align-items: start;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: linear-gradient(130deg, rgba(255,255,255,0.026), transparent);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.principle-card:hover {
+  transform: translateX(5px);
+  border-color: var(--line-bright);
+}
+
+.principle-number {
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.principle-card h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.principle-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.principle-icon {
+  color: var(--cyan);
+  font-size: 17px;
+}
+
+/* DRACO PANEL */
+
+.heading-with-tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 17px;
+}
+
+.heading-with-tag h2 {
+  margin: 18px 0 0;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.13;
+  font-weight: 700;
+  letter-spacing: -2.7px;
+}
+
+.heading-with-tag .tag {
+  margin-top: 16px;
+}
+
+.draco-panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(150deg, rgba(19, 37, 50, 0.7), rgba(10, 16, 24, 0.96));
+  box-shadow: var(--shadow);
+}
+
+.draco-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 19px 24px;
+  border-bottom: 1px solid var(--line);
+  color: #8ba2b0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.draco-topline span:last-child {
+  color: var(--cyan);
+}
+
+.aircraft-stage {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, rgba(48, 148, 190, 0.12), transparent 65%);
+}
+
+.aircraft-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(101, 234, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 234, 255, 0.07) 1px, transparent 1px);
+  background-size: 35px 35px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.aircraft-stage::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(101,234,255,.22), transparent);
+  top: 50%;
+}
+
+.aircraft-svg {
+  position: relative;
+  z-index: 1;
+  width: min(70%, 570px);
+  max-height: 380px;
+  overflow: visible;
+  animation: aircraft-hover 6s ease-in-out infinite;
+}
+
+.plane-outline {
+  transform-origin: center;
+  animation: plane-glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes aircraft-hover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes plane-glow {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
+.aircraft-callout {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #8da8b6;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.callout-left {
+  left: 5%;
+  top: 32%;
+}
+
+.callout-right {
+  right: 4%;
+  bottom: 30%;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.callout-line {
+  display: block;
+  width: 35px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 9px rgba(101, 234, 255, 0.45);
+}
+
+.schematic-caption {
+  position: absolute;
+  right: 24px;
+  bottom: 17px;
+  left: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #67808e;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.draco-details {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 65px;
+  padding: 34px;
+  border-top: 1px solid var(--line);
+}
+
+.draco-description h3 {
+  margin: 13px 0;
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -1px;
+}
+
+.draco-description p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.draco-specs {
+  align-self: center;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+}
+
+.spec-row span {
+  color: var(--muted);
+}
+
+.spec-row strong {
+  text-align: right;
+  font-weight: 600;
+}
+
+/* PROJECT CARDS */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(17, 27, 38, 0.93), rgba(10, 16, 23, 0.96));
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--line-bright);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.24);
+}
+
+.project-visual {
+  position: relative;
+  min-height: 215px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(101,234,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101,234,255,.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.visual-index,
+.visual-caption {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  color: #8199a8;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.visual-index {
+  top: 18px;
+}
+
+.visual-caption {
+  bottom: 17px;
+}
+
+.visual-monogram {
+  position: relative;
+  z-index: 1;
+  color: #9cefff;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -7px;
+  text-shadow: 0 0 40px rgba(101, 234, 255, 0.17);
+  transition: transform 300ms ease;
+}
+
+.project-card:hover .visual-monogram {
+  transform: scale(1.08);
+}
+
+.visual-monogram span {
+  color: #edfaff;
+  font-size: 0.55em;
+}
+
+.visual-draco {
+  background: radial-gradient(ellipse at center, #163d4b, #0b131e 74%);
+}
+
+.visual-rings {
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  border: 1px solid rgba(101,234,255,.24);
+  border-radius: 50%;
+  animation: orbit-rotate 25s linear infinite;
+}
+
+.visual-rings::before,
+.visual-rings::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(101,234,255,.24);
+  border-radius: 50%;
+}
+
+.visual-rings::after {
+  inset: 45px;
+  border-style: solid;
+}
+
+.visual-cleanx {
+  background: radial-gradient(ellipse at center, #183b37, #0b131b 74%);
+}
+
+.cleanx-orbit {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(129,244,193,.32);
+  border-radius: 50%;
+  transform: rotate(-35deg) scaleY(.55);
+}
+
+.cleanx-orbit::before,
+.cleanx-orbit::after {
+  content: "";
+  position: absolute;
+  inset: -14px 20px;
+  border: 1px solid rgba(129,244,193,.18);
+  border-radius: 50%;
+}
+
+.cleanx-orbit::after {
+  transform: rotate(60deg);
+}
+
+.visual-arc {
+  background: radial-gradient(ellipse at center, #26264c, #0b111b 74%);
+}
+
+.arc-symbol {
+  position: relative;
+  z-index: 1;
+  color: #b4a7ff;
+  font-size: 115px;
+  line-height: 1;
+  text-shadow: 0 0 38px rgba(155,135,255,.3);
+  animation: arc-pulse 4s ease-in-out infinite;
+}
+
+@keyframes arc-pulse {
+  0%, 100% { transform: scale(1); opacity: .82; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.visual-cardio {
+  background: radial-gradient(ellipse at center, #3b202d, #0b111b 74%);
+  color: #ff9aaf;
+}
+
+.pulse-svg {
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgba(255,154,175,.28));
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7d94a2;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.project-content h3 {
+  margin: 20px 0 10px;
+  font-size: 23px;
+  line-height: 1.3;
+  letter-spacing: -0.8px;
+}
+
+.project-content p {
+  min-height: 67px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 22px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.text-link span {
+  transition: transform 180ms ease;
+}
+
+a.text-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.text-link-muted {
+  color: #8a9daa;
+}
+
+/* FUTURE PROJECTS */
+
+.future-section {
+  position: relative;
+}
+
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.future-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(13, 21, 30, 0.85);
+  transition: transform 260ms ease, border-color 260ms ease;
+}
+
+.future-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155, 135, 255, 0.35);
+}
+
+.future-art {
+  position: relative;
+  min-height: 245px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at center, rgba(99, 87, 181, 0.15), transparent 67%),
+    #0c131e;
+}
+
+.future-number {
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  color: #8a9ba9;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.sukhoi-svg {
+  width: 86%;
+  color: #c3a7ff;
+  filter: drop-shadow(0 0 18px rgba(155,135,255,.13));
+  animation: aircraft-hover 7s ease-in-out infinite;
+}
+
+.future-stamp {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  padding: 5px 8px;
+  border: 1px solid rgba(155, 135, 255, 0.24);
+  border-radius: 5px;
+  color: #c2b6ff;
+  background: rgba(155, 135, 255, 0.05);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.future-content {
+  padding: 25px;
+}
+
+.future-content h3 {
+  margin: 9px 0;
+  font-size: 25px;
+  letter-spacing: -0.9px;
+}
+
+.future-content p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.95;
+}
+
+.future-content .tag {
+  margin-top: 8px;
+}
+
+.airoracle-tagline {
+  margin: 0 0 12px !important;
+  color: #b7aaff !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.future-airoracle .future-art {
+  background:
+    radial-gradient(ellipse at center, rgba(40, 145, 194, 0.19), transparent 65%),
+    #0c131e;
+}
+
+.sim-scene {
+  position: relative;
+  width: 78%;
+  height: 135px;
+  overflow: hidden;
+  border: 1px solid rgba(101, 234, 255, 0.16);
+  border-radius: 9px;
+  background: linear-gradient(#112332, #0b131c);
+}
+
+.sim-horizon {
+  position: absolute;
+  top: 35%;
+  left: -15%;
+  width: 130%;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 13px var(--cyan);
+  transform: rotate(-8deg);
+}
+
+.sim-grid {
+  position: absolute;
+  inset: 40% -15% -50%;
+  background-image:
+    linear-gradient(rgba(101,234,255,.19) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101,234,255,.19) 1px, transparent 1px);
+  background-size: 22px 22px;
+  transform: perspective(100px) rotateX(25deg);
+  transform-origin: top;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.sim-target {
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  color: var(--cyan);
+  font-size: 28px;
+  transform: translateX(-50%);
+}
+
+.sim-readout {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #8fb8c8;
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+.future-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.mini-project {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: rgba(255, 255, 255, 0.015);
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.mini-project:hover {
+  transform: translateY(-4px);
+  background: rgba(101, 234, 255, 0.035);
+  border-color: var(--line-bright);
+}
+
+.mini-project-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  border: 1px solid rgba(101,234,255,.2);
+  border-radius: 11px;
+  color: var(--cyan);
+  background: rgba(101,234,255,.045);
+  font-size: 21px;
+}
+
+.mini-project h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+}
+
+.mini-project p {
+  min-height: 60px;
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+/* RESEARCH */
+
+.research-panel {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, rgba(22, 34, 44, .8), rgba(11, 17, 25, .95));
+}
+
+.research-visual {
+  position: relative;
+  min-height: 340px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background:
+    radial-gradient(circle at center, rgba(101, 234, 255, .09), transparent 68%);
+}
+
+.research-radar {
+  position: relative;
+  width: min(75%, 270px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(101,234,255,.2);
+  border-radius: 50%;
+  background:
+    linear-gradient(rgba(101,234,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101,234,255,.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.radar-ring {
+  position: absolute;
+  inset: 15%;
+  border: 1px solid rgba(101,234,255,.17);
+  border-radius: 50%;
+}
+
+.ring-b {
+  inset: 30%;
+}
+
+.ring-c {
+  inset: 45%;
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(101,234,255,.03) 220deg,
+    rgba(101,234,255,.24) 355deg,
+    transparent 360deg
+  );
+  animation: orbit-rotate 6s linear infinite;
+}
+
+.radar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 20px var(--cyan);
+  transform: translate(-50%, -50%);
+}
+
+.research-visual-label {
+  position: absolute;
+  bottom: 19px;
+  left: 20px;
+  color: #8198a5;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.research-copy {
+  align-self: center;
+  padding: 38px;
+}
+
+.research-copy h3 {
+  margin: 22px 0 13px;
+  font-size: 32px;
+  letter-spacing: -1.2px;
+}
+
+.research-copy > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.95;
+}
+
+.research-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.research-topics span {
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #b5c6d0;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 9px;
+}
+
+/* MILESTONES */
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.milestone-card {
+  position: relative;
+  min-height: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: linear-gradient(140deg, rgba(255,255,255,.025), transparent 70%);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.milestone-card::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(101,234,255,.08);
+  border-radius: 50%;
+  transition: transform 300ms ease;
+}
+
+.milestone-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--line-bright);
+}
+
+.milestone-card:hover::after {
+  transform: scale(1.25);
+}
+
+.milestone-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 23px;
+  border: 1px solid rgba(101,234,255,.2);
+  border-radius: 12px;
+  color: var(--cyan);
+  background: rgba(101,234,255,.045);
+  font-size: 22px;
+}
+
+.milestone-category {
+  color: #7d95a3;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.milestone-card h3 {
+  margin: 11px 0 7px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.milestone-card p {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+.milestone-index {
+  margin-top: auto;
+  color: #536c7a;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  padding-bottom: 105px;
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+  padding: clamp(26px, 5vw, 60px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(41, 115, 150, .13), transparent 60%),
+    linear-gradient(130deg, rgba(17, 28, 39, .94), rgba(10, 16, 24, .98));
+}
+
+.contact-copy h2 {
+  font-size: clamp(33px, 4.5vw, 48px);
+  letter-spacing: -2px;
+}
+
+.contact-copy > p {
+  max-width: 410px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.contact-form,
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form label,
+.auth-modal label {
+  margin-top: 6px;
+  color: #bdcbd4;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea,
+.auth-modal input,
+.magik-input-row input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  outline: none;
+  color: var(--text);
+  background: rgba(5, 10, 16, .52);
+  font-size: 12px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+.auth-modal input::placeholder,
+.magik-input-row input::placeholder {
+  color: #657b89;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.auth-modal input:focus,
+.magik-input-row input:focus {
+  border-color: rgba(101, 234, 255, .55);
+  box-shadow: 0 0 0 3px rgba(101, 234, 255, .055);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 9px;
+}
+
+.form-note {
+  margin: 7px 0 0;
+  color: #708592;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 25px max(28px, calc((100vw - var(--content-width)) / 2));
+  border-top: 1px solid var(--line);
+  background: rgba(6, 10, 15, .65);
+}
+
+.footer-brand .brand-mark {
+  width: 37px;
+  height: 37px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.footer-brand .brand-copy strong {
+  font-size: 12px;
+}
+
+.footer-brand .brand-copy small {
+  font-size: 8px;
+}
+
+.site-footer > p {
+  color: #7c909d;
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #708491;
+  font-size: 9px;
+}
+
+.footer-right a {
+  color: var(--cyan);
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* MAGIK CHATBOT */
+
+.magik-widget {
+  position: fixed;
+  z-index: 1500;
+  right: 25px;
+  bottom: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 13px;
+  font-size: 13px;
+}
+
+.magik-launcher {
+  position: relative;
+  min-width: 145px;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 8px 16px 8px 9px;
+  border: 1px solid rgba(101,234,255,.43);
+  border-radius: 18px;
+  color: #061016;
+  background: linear-gradient(110deg, #a6f4ff, #65eaff);
+  box-shadow: 0 12px 35px rgba(36, 187, 224, .19);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.magik-launcher:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(36, 187, 224, .27);
+}
+
+.magik-launcher-icon {
+  position: relative;
+  z-index: 2;
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(6,16,22,.18);
+  border-radius: 13px;
+  background: rgba(255,255,255,.4);
+  font-size: 23px;
+  animation: magik-icon-float 3s ease-in-out infinite;
+}
+
+.magik-launcher-label {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.magik-launcher-pulse {
+  position: absolute;
+  z-index: -1;
+  inset: -5px;
+  border: 1px solid rgba(101,234,255,.6);
+  border-radius: 22px;
+  animation: magik-pulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes magik-icon-float {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  50% { transform: rotate(8deg) translateY(-2px); }
+}
+
+@keyframes magik-pulse {
+  0% { transform: scale(.98); opacity: .6; }
+  100% { transform: scale(1.13); opacity: 0; }
+}
+
+.magik-panel {
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(560px, calc(100dvh - 120px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(101,234,255,.23);
+  border-radius: 19px;
+  background: #0c141e;
+  box-shadow: 0 24px 90px rgba(0,0,0,.52);
+  transform-origin: bottom right;
+  animation: magik-panel-enter 180ms ease-out;
+}
+
+@keyframes magik-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.magik-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(110deg, rgba(101,234,255,.07), transparent);
+}
+
+.magik-avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(101,234,255,.35);
+  border-radius: 13px;
+  color: var(--cyan);
+  background: rgba(101,234,255,.075);
+  font-size: 23px;
+  animation: magik-icon-float 3s ease-in-out infinite;
+}
+
+.magik-heading {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.magik-heading strong {
+  font-size: 14px;
+}
+
+.magik-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.magik-heading .status-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.magik-close,
+.modal-close {
+  width: 33px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: #a7b8c3;
+  background: rgba(255,255,255,.025);
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.magik-close:hover,
+.modal-close:hover {
+  color: var(--cyan);
+  border-color: var(--line-bright);
+}
+
+.magik-messages {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.chat-message {
+  max-width: 90%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.bot-message {
+  align-self: flex-start;
+  color: #d2e1e8;
+  border: 1px solid var(--line);
+  border-top-left-radius: 4px;
+  background: #121e2a;
+}
+
+.user-message {
+  align-self: flex-end;
+  color: #071219;
+  border-top-right-radius: 4px;
+  background: var(--cyan);
+}
+
+.magik-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 13px 13px;
+}
+
+.magik-suggestions button {
+  padding: 7px 9px;
+  border: 1px solid rgba(101,234,255,.18);
+  border-radius: 8px;
+  color: #a6eaf5;
+  background: rgba(101,234,255,.035);
+  font-size: 9px;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.magik-suggestions button:hover {
+  background: rgba(101,234,255,.11);
+}
+
+.magik-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.magik-input-row input {
+  flex: 1;
+  padding: 11px 12px;
+  font-size: 11px;
+}
+
+.magik-input-row button {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 10px;
+  color: #061016;
+  background: var(--cyan);
+  font-size: 21px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.magik-input-row button:hover {
+  transform: translateY(-2px);
+}
+
+.magik-disclaimer {
+  padding: 0 13px 12px;
+  color: #647a88;
+  font-size: 8px;
+  text-align: center;
+}
+
+/* AUTH MODAL */
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 3000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(2, 6, 10, .78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fade-in 160ms ease-out;
+}
+
+.auth-modal {
+  position: relative;
+  width: min(430px, 100%);
+  padding: 34px;
+  border: 1px solid rgba(101,234,255,.23);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at top, rgba(101,234,255,.09), transparent 65%),
+    #0c141e;
+  box-shadow: 0 30px 100px rgba(0,0,0,.45);
+  animation: modal-enter 220ms ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.auth-logo {
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 25px;
+  border: 1px solid rgba(101,234,255,.4);
+  border-radius: 15px;
+  color: var(--cyan);
+  background: rgba(101,234,255,.07);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.auth-modal h2 {
+  margin: 13px 0 8px;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -1.3px;
+}
+
+.auth-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-switch {
+  display: block;
+  margin: 17px auto 0;
+  padding: 5px;
+  border: 0;
+  color: var(--cyan);
+  background: transparent;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.auth-switch:hover {
+  text-decoration: underline;
+}
+
+/* TOAST */
+
+.toast {
+  position: fixed;
+  z-index: 4000;
+  left: 50%;
+  bottom: 25px;
+  max-width: min(460px, calc(100% - 30px));
+  padding: 13px 17px;
+  border: 1px solid rgba(101,234,255,.28);
+  border-radius: 11px;
+  color: #dffaff;
+  background: #101c27;
+  box-shadow: 0 15px 50px rgba(0,0,0,.3);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.toast.toast-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* SCROLL REVEAL */
+
+.js-enabled .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms cubic-bezier(.2,.7,.2,1),
+    transform 700ms cubic-bezier(.2,.7,.2,1);
+}
+
+.js-enabled .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-grid .project-card:nth-child(2),
+.milestone-grid .milestone-card:nth-child(2),
+.future-mini-grid .mini-project:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.project-grid .project-card:nth-child(3),
+.milestone-grid .milestone-card:nth-child(3),
+.future-mini-grid .mini-project:nth-child(3) {
+  transition-delay: 150ms;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVE — TABLET */
+
+@media (max-width: 1050px) {
+  .site-header {
+    gap: 17px;
+  }
+
+  .main-nav {
+    gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 6.1vw, 66px);
+  }
+
+  .about-grid {
+    gap: 45px;
+  }
+
+  .draco-details {
+    gap: 35px;
+  }
+
+  .contact-panel {
+    gap: 40px;
+  }
+}
+
+/* RESPONSIVE — MOBILE NAVIGATION */
+
+@media (max-width: 820px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .site-header {
+    padding-inline: 22px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 22px 18px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(8,12,18,.97);
+    box-shadow: 0 20px 30px rgba(0,0,0,.25);
+  }
+
+  .main-nav.nav-open {
+    display: flex;
+    animation: fade-in 160ms ease-out;
+  }
+
+  .main-nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(153,193,213,.08);
+    font-size: 12px;
+  }
+
+  .main-nav a::after {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .header-actions .button {
+    padding-inline: 11px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 70px;
+    padding-bottom: 100px;
+  }
+
+  .hero-copy {
+    max-width: 660px;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 8vw, 68px);
+  }
+
+  .hero-visual {
+    min-height: 380px;
+    margin-top: 20px;
+  }
+
+  .hero-bottom {
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .draco-details {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .research-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .research-visual {
+    min-height: 290px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .site-footer {
+    flex-wrap: wrap;
+  }
+
+  .site-footer > p {
+    display: none;
+  }
+
+  .footer-right {
+    margin-left: auto;
+  }
+}
+
+/* RESPONSIVE — SMALL MOBILE */
+
+@media (max-width: 560px) {
+  body {
+    font-size: 14px;
+  }
+
+  .section-shell {
+    width: calc(100% - 36px);
+  }
+
+  .site-header {
+    gap: 10px;
+    padding-inline: 18px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+
+  .brand-copy strong {
+    font-size: 12px;
+  }
+
+  .brand-copy small {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .menu-toggle {
+    width: 37px;
+    height: 37px;
+    padding: 9px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .header-actions .button {
+    min-height: 35px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .header-actions .button-ghost {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    margin-top: 24px;
+    font-size: clamp(42px, 11vw, 58px);
+    letter-spacing: -3.2px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 330px;
+  }
+
+  .hero-core {
+    width: 175px;
+    height: 175px;
+  }
+
+  .core-symbol {
+    font-size: 53px;
+  }
+
+  .orbit {
+    width: 300px;
+  }
+
+  .orbit-two {
+    width: 250px;
+  }
+
+  .floating-label {
+    padding: 8px;
+    font-size: 7px;
+    letter-spacing: .5px;
+  }
+
+  .label-top {
+    right: 0;
+  }
+
+  .label-bottom {
+    left: 0;
+  }
+
+  .coordinate {
+    font-size: 7px;
+  }
+
+  .hero-bottom {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-bottom span:nth-child(2) {
+    display: none;
+  }
+
+  .section {
+    padding-top: 88px;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-heading h2,
+  .heading-with-tag h2 {
+    font-size: 38px;
+    letter-spacing: -1.8px;
+  }
+
+  .heading-with-tag {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .heading-with-tag .tag {
+    margin-top: 12px;
+  }
+
+  .large-copy {
+    font-size: 23px;
+  }
+
+  .principle-card {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .draco-topline {
+    flex-direction: column;
+    gap: 6px;
+    padding: 15px;
+    font-size: 8px;
+  }
+
+  .aircraft-stage {
+    min-height: 310px;
+  }
+
+  .aircraft-svg {
+    width: 92%;
+  }
+
+  .aircraft-callout {
+    font-size: 6px;
+    letter-spacing: .4px;
+  }
+
+  .callout-line {
+    width: 15px;
+  }
+
+  .schematic-caption {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    font-size: 6px;
+    letter-spacing: .4px;
+  }
+
+  .draco-details {
+    padding: 22px 17px;
+  }
+
+  .draco-description h3 {
+    font-size: 25px;
+  }
+
+  .project-grid,
+  .future-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-visual {
+    min-height: 190px;
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-content h3 {
+    font-size: 21px;
+  }
+
+  .project-content p {
+    min-height: 0;
+  }
+
+  .future-art {
+    min-height: 205px;
+  }
+
+  .future-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mini-project {
+    padding: 20px;
+  }
+
+  .mini-project-icon {
+    margin-bottom: 15px;
+  }
+
+  .mini-project p {
+    min-height: 0;
+  }
+
+  .research-visual {
+    min-height: 250px;
+  }
+
+  .research-copy {
+    padding: 24px 19px;
+  }
+
+  .research-copy h3 {
+    font-size: 28px;
+  }
+
+  .milestone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milestone-card {
+    min-height: 215px;
+  }
+
+  .contact-section {
+    padding-bottom: 75px;
+  }
+
+  .contact-panel {
+    padding: 24px 18px;
+    gap: 24px;
+  }
+
+  .contact-copy h2 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 23px 18px;
+  }
+
+  .footer-right {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .magik-widget {
+    right: 13px;
+    bottom: 13px;
+    gap: 9px;
+  }
+
+  .magik-launcher {
+    min-width: 54px;
+    width: 54px;
+    height: 54px;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 17px;
+  }
+
+  .magik-launcher-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .magik-launcher-label {
+    display: none;
+  }
+
+  .magik-panel {
+    width: min(350px, calc(100vw - 26px));
+    max-height: min(510px, calc(100dvh - 95px));
+  }
+
+  .auth-modal {
+    padding: 27px 22px;
+  }
+}
+
+/* ACCESSIBILITY: REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js-enabled .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* PROFILE MENU */
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.profile-trigger img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 260px;
+  padding: 16px;
+  background: #101820;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  min-width: 0;
+}
+
+.profile-details img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+}
+
+.profile-details strong,
+.profile-details span {
+  overflow-wrap: anywhere;
+}
+
+.profile-details span {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.profile-dropdown #signOutBtn {
+  width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+</style>
+</head>
+
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="AutoMagika home">
+      <span class="brand-mark">A<span>M</span></span>
+      <span class="brand-copy">
+        <strong>AutoMagika</strong>
+        <small>INDUSTRIES</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#draco">DRACO-F22</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="button button-ghost button-small" id="signInBtn">
+        Sign in
+      </button>
+      <button class="button button-primary button-small" id="signUpBtn">
+        Join us <span aria-hidden="true">↗</span>
+      </button><div class="profile-menu" id="profileMenu" hidden>
+  <button id="profileTrigger" class="profile-trigger button button-ghost button-small" type="button">
+    <img id="profileAvatar" src="" alt="">
+    <span id="profileTriggerName">Your Profile</span>
+    <span aria-hidden="true">⌄</span>
+  </button>
+
+  <div class="profile-dropdown" id="profileDropdown" hidden>
+    <div class="profile-details">
+      <img id="profileDropdownAvatar" src="" alt="">
+      <div>
+        <strong id="profileName"></strong>
+        <span id="profileEmail"></span>
+      </div>
+    </div>
+    <button id="signOutBtn" class="button button-ghost button-small" type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          INDEPENDENT ENGINEERING INITIATIVE
+        </div>
+
+        <h1>
+          We don't just<br>
+          imagine the <span class="gradient-text">future.</span><br>
+          We engineer it.
+        </h1>
+
+        <p class="hero-description">
+          From robotics and intelligent systems to experimental aerospace
+          concepts, AutoMagika turns ambitious ideas into engineering projects.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#draco" class="button button-primary">
+            Explore DRACO <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#projects" class="button button-ghost">
+            Explore our projects
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-line"></span>
+          Built on curiosity. Driven by engineering.
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="hero-core">
+          <span class="core-symbol">A<span>M</span></span>
+          <span class="core-caption">ENGINEERING<br>THE UNEXPECTED</span>
+        </div>
+
+        <div class="floating-label label-top">
+          <span class="mini-dot"></span>
+          AEROSPACE SYSTEMS
+        </div>
+
+        <div class="floating-label label-bottom">
+          <span class="mini-dot"></span>
+          IDEAS → PROTOTYPES
+        </div>
+
+        <div class="coordinate coordinate-top">12° 58' N</div>
+        <div class="coordinate coordinate-bottom">AUTOMAGIKA / 001</div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>01 / INNOVATION</span>
+        <span>ROBOTICS · AEROSPACE · INTELLIGENCE</span>
+        <a href="#about">SCROLL TO EXPLORE ↓</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-shell" id="about">
+      <div class="section-heading reveal">
+        <span class="section-index">01 — WHO WE ARE</span>
+        <h2>Small team.<br><span class="muted">Big engineering ambitions.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-main reveal">
+          <p class="large-copy">
+            AutoMagika Industries is a student-led initiative exploring
+            the intersection of <span class="accent">aerospace, robotics,
+            intelligent systems and experimental design.</span>
+          </p>
+
+          <p class="body-copy">
+            We believe a concept becomes meaningful when it is challenged,
+            tested, improved and built. Our work ranges from physical
+            prototypes to software concepts and research-driven projects.
+          </p>
+
+          <p class="body-copy">
+            Every project is another opportunity to learn something new,
+            solve a difficult problem and push our capabilities further.
+          </p>
+        </div>
+
+        <div class="principles reveal">
+          <article class="principle-card">
+            <span class="principle-number">01</span>
+            <div>
+              <h3>Build</h3>
+              <p>Turn ideas into prototypes, models and working systems.</p>
+            </div>
+            <span class="principle-icon">↗</span>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">02</span>
+            <div>
+              <h3>Experiment</h3>
+              <p>Learn through testing, iteration and honest evaluation.</p>
+            </div>
+            <span class="principle-icon">⌁</span>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">03</span>
+            <div>
+              <h3>Imagine</h3>
+              <p>Explore ambitious technologies while respecting what is feasible.</p>
+            </div>
+            <span class="principle-icon">✳</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAGSHIP DRACO -->
+    <section class="section section-shell draco-section" id="draco">
+      <div class="section-heading reveal">
+        <span class="section-index">02 — FLAGSHIP AEROSPACE PROJECT</span>
+        <div class="heading-with-tag">
+          <h2>DRACO<span class="accent">-F22</span> Raptor</h2>
+          <span class="tag tag-live">FLAGSHIP PROJECT</span>
+        </div>
+        <p class="section-description">
+          A compact experimental aircraft project focused on RC flight,
+          control systems, electronics integration and iterative design.
+        </p>
+      </div>
+
+      <div class="draco-panel reveal">
+        <div class="draco-topline">
+          <span>DRACO-F22 / AIRFRAME OVERVIEW</span>
+          <span>CONCEPTUAL SCHEMATIC</span>
+        </div>
+
+        <div class="aircraft-stage">
+          <div class="aircraft-grid" aria-hidden="true"></div>
+
+          <div class="aircraft-callout callout-left">
+            <span class="callout-line"></span>
+            <span>WING PLANFORM</span>
+          </div>
+
+          <div class="aircraft-callout callout-right">
+            <span class="callout-line"></span>
+            <span>TWIN-TAIL CONFIGURATION</span>
+          </div>
+
+          <!-- Original stylized F-22-inspired silhouette.
+               This is an illustrative top view, NOT a technical blueprint. -->
+          <svg class="aircraft-svg" viewBox="0 0 700 430"
+            role="img" aria-labelledby="f22Title f22Desc">
+            <title id="f22Title">F-22-inspired aircraft top-view schematic</title>
+            <desc id="f22Desc">
+              A stylized top-down stealth fighter silhouette with a pointed
+              nose, swept wings, twin engine bodies and two outward-canted tails.
+              Conceptual illustration, not a manufacturing drawing.
+            </desc>
+
+            <defs>
+              <linearGradient id="planeFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1b3947"/>
+                <stop offset="50%" stop-color="#10222e"/>
+                <stop offset="100%" stop-color="#0b141e"/>
+              </linearGradient>
+
+              <linearGradient id="planeEdge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#46e5ff"/>
+                <stop offset="50%" stop-color="#a1f4ff"/>
+                <stop offset="100%" stop-color="#46e5ff"/>
+              </linearGradient>
+
+              <filter id="planeGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <g class="plane-outline" stroke="url(#planeEdge)"
+              stroke-width="1.6" stroke-linejoin="round"
+              stroke-linecap="round" filter="url(#planeGlow)">
+
+              <!-- Main wing and fuselage silhouette -->
+              <path fill="url(#planeFill)" d="
+                M350 20
+                L362 56
+                L380 92
+                L485 125
+                L625 203
+                L630 218
+                L500 207
+                L432 241
+                L410 290
+                L430 335
+                L400 328
+                L369 292
+                L350 282
+                L331 292
+                L300 328
+                L270 335
+                L290 290
+                L268 241
+                L200 207
+                L70 218
+                L75 203
+                L215 125
+                L320 92
+                L338 56
+                Z"/>
+
+              <!-- Center fuselage -->
+              <path fill="#183442" d="
+                M350 20
+                L363 91
+                L377 144
+                L366 219
+                L359 272
+                L350 291
+                L341 272
+                L334 219
+                L323 144
+                L337 91
+                Z"/>
+
+              <!-- Canopy -->
+              <path fill="#204e60" d="
+                M350 59
+                L362 92
+                L358 123
+                L350 133
+                L342 123
+                L338 92
+                Z"/>
+
+              <!-- Twin engine nacelles -->
+              <path fill="#0b1721" d="
+                M301 150 L322 166 L331 231
+                L316 256 L300 218 Z"/>
+              <path fill="#0b1721" d="
+                M399 150 L378 166 L369 231
+                L384 256 L400 218 Z"/>
+
+              <!-- Engine outlets -->
+              <path fill="#071018" d="M301 220 L316 256 L306 267 L292 234 Z"/>
+              <path fill="#071018" d="M399 220 L384 256 L394 267 L408 234 Z"/>
+
+              <!-- Horizontal tail surfaces -->
+              <path fill="#132a36" d="
+                M324 259 L277 302 L259 327 L309 310 L341 284 Z"/>
+              <path fill="#132a36" d="
+                M376 259 L423 302 L441 327 L391 310 L359 284 Z"/>
+
+              <!-- Twin outward-canted vertical tails -->
+              <path fill="#214555" d="
+                M304 264 L269 291 L246 330 L280 315 L315 283 Z"/>
+              <path fill="#214555" d="
+                M396 264 L431 291 L454 330 L420 315 L385 283 Z"/>
+
+              <!-- Leading-edge and control-surface detail -->
+              <path fill="none" d="M350 28 L350 280"/>
+              <path fill="none" d="M215 129 L300 208"/>
+              <path fill="none" d="M485 129 L400 208"/>
+              <path fill="none" d="M93 211 L201 201 L269 235"/>
+              <path fill="none" d="M607 211 L499 201 L431 235"/>
+              <path fill="none" d="M302 176 L332 208"/>
+              <path fill="none" d="M398 176 L368 208"/>
+            </g>
+
+            <!-- Symmetry axis -->
+            <line x1="350" y1="8" x2="350" y2="408"
+              stroke="#65eaff" stroke-width="0.8"
+              stroke-dasharray="4 8" opacity="0.45"/>
+          </svg>
+
+          <div class="schematic-caption">
+            <span>TOP VIEW / ILLUSTRATIVE</span>
+            <span>NOT AN ENGINEERING BLUEPRINT</span>
+          </div>
+        </div>
+
+        <div class="draco-details">
+          <div class="draco-description">
+            <span class="mini-label">THE PROJECT</span>
+            <h3>Inspired by stealth.<br>Built to learn.</h3>
+            <p>
+              DRACO-F22 is AutoMagika's experimental RC aircraft platform.
+              Its development explores airframe design, onboard electronics,
+              servo actuation, propulsion integration and flight-control
+              challenges.
+            </p>
+            <p class="muted-small">
+              The schematic above is an original F-22-inspired illustration,
+              not a dimensionally accurate Lockheed Martin blueprint or
+              a representation of the exact DRACO airframe.
+            </p>
+          </div>
+
+          <div class="draco-specs">
+            <div class="spec-row">
+              <span>Platform</span>
+              <strong>RC aircraft</strong>
+            </div>
+            <div class="spec-row">
+              <span>Design inspiration</span>
+              <strong>F-22 Raptor</strong>
+            </div>
+            <div class="spec-row">
+              <span>Focus</span>
+              <strong>Airframe & electronics</strong>
+            </div>
+            <div class="spec-row">
+              <span>Development</span>
+              <strong>Prototype iteration</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-shell" id="projects">
+      <div class="section-heading reveal">
+        <span class="section-index">03 — PROJECT PORTFOLIO</span>
+        <h2>Ideas in <span class="gradient-text">motion.</span></h2>
+        <p class="section-description">
+          Different problems. Different disciplines. One engineering mindset.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card project-featured reveal">
+          <div class="project-visual visual-draco">
+            <span class="visual-index">AM / 001</span>
+            <div class="visual-rings"></div>
+            <span class="visual-monogram">D<span>22</span></span>
+            <span class="visual-caption">AEROSPACE SYSTEMS</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>01 / AEROSPACE</span>
+              <span class="tag">FLAGSHIP</span>
+            </div>
+            <h3>DRACO-F22 Raptor</h3>
+            <p>
+              An experimental RC aircraft platform exploring airframe
+              engineering and electronic control systems.
+            </p>
+            <a class="text-link" href="#draco">
+              Explore project <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-cleanx">
+            <span class="visual-index">AM / 002</span>
+            <div class="cleanx-orbit"></div>
+            <span class="visual-monogram">C<span>X</span></span>
+            <span class="visual-caption">CLEAN TECHNOLOGY</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>02 / INNOVATION</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>CleanX</h3>
+            <p>
+              An innovation project developed as part of AutoMagika's
+              broader exploration of practical engineering ideas.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-arc">
+            <span class="visual-index">AM / 003</span>
+            <div class="arc-symbol">⌁</div>
+            <span class="visual-caption">SYSTEMS & AUTOMATION</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>03 / SYSTEMS</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>ARC</h3>
+            <p>
+              A project within the AutoMagika portfolio focused on
+              engineering experimentation and system design.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-cardio">
+            <span class="visual-index">AM / 004</span>
+            <svg class="pulse-svg" viewBox="0 0 300 100"
+              role="img" aria-label="Abstract pulse waveform">
+              <path d="M0 53 L68 53 L88 35 L110 76 L135 12 L157 88 L180 53 L300 53"
+                fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M0 53 L68 53 L88 35 L110 76 L135 12 L157 88 L180 53 L300 53"
+                fill="none" stroke="currentColor" stroke-width="8" opacity="0.12"/>
+            </svg>
+            <span class="visual-caption">HEALTH-TECH CONCEPT</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>04 / HEALTH TECH</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>CardioGuard</h3>
+            <p>
+              A health-technology concept exploring how engineering
+              and connected systems might support monitoring.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FUTURE PROJECTS -->
+    <section class="section section-shell future-section" id="future">
+      <div class="section-heading reveal">
+        <span class="section-index">04 — WHAT COMES NEXT</span>
+        <h2>The next generation<br>starts as an <span class="gradient-text">idea.</span></h2>
+      </div>
+
+      <div class="future-grid">
+
+        <article class="future-card future-sukhoi reveal">
+          <div class="future-art">
+            <span class="future-number">FUTURE PROJECT / 01</span>
+            <svg class="sukhoi-svg" viewBox="0 0 420 220"
+              role="img" aria-label="Stylized twin-tail fighter aircraft concept">
+              <g fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linejoin="round">
+                <path d="M210 12 L222 55 L397 137 L405 151 L273 144
+                  L245 166 L235 197 L213 184 L210 171 L207 184
+                  L185 197 L175 166 L147 144 L15 151 L23 137
+                  L198 55 Z" fill="rgba(100,220,255,.09)"/>
+                <path d="M210 12 L210 171"/>
+                <path d="M198 55 L147 144"/>
+                <path d="M222 55 L273 144"/>
+                <path d="M185 155 L156 185 L179 180"/>
+                <path d="M235 155 L264 185 L241 180"/>
+                <path d="M197 88 L181 139"/>
+                <path d="M223 88 L239 139"/>
+              </g>
+            </svg>
+            <span class="future-stamp">CONCEPT</span>
+          </div>
+          <div class="future-content">
+            <span class="mini-label">A NEW DESIGN DIRECTION</span>
+            <h3>Draco Sukhoi</h3>
+            <p>
+              The next evolution of the DRACO idea: a future aircraft concept
+              that reimagines the familiar platform through a Sukhoi-inspired,
+              Soviet-style design language, with bold surfaces and a distinctive
+              twin-tail silhouette.
+            </p>
+            <span class="tag tag-future">FUTURE PROJECT</span>
+          </div>
+        </article>
+
+        <article class="future-card future-airoracle reveal">
+          <div class="future-art">
+            <span class="future-number">FUTURE PROJECT / 02</span>
+            <div class="sim-scene" aria-hidden="true">
+              <div class="sim-horizon"></div>
+              <div class="sim-grid"></div>
+              <div class="sim-target">+</div>
+              <div class="sim-readout">FLIGHT MODEL / SIMULATION</div>
+            </div>
+            <span class="future-stamp">IN DEVELOPMENT</span>
+          </div>
+          <div class="future-content">
+            <span class="mini-label">FLIGHT SIMULATION VISION</span>
+            <h3>AirOracle</h3>
+            <p class="airoracle-tagline">from the ‘so called idea club’</p>
+            <p>
+              A planned flight-simulation concept exploring aircraft from
+              RC planes and commercial airliners to fighter aircraft.
+              The long-term vision spans electric BLDC propulsion and
+              high-speed, supersonic flight concepts through simulation
+              and progressively more advanced models.
+            </p>
+            <span class="tag tag-future">FUTURE PROJECT</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="future-mini-grid">
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">⌘</span>
+          <h3>Rover Systems</h3>
+          <p>Exploring mobile robotics, sensing and autonomous navigation.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">⬡</span>
+          <h3>ExoMagika</h3>
+          <p>An exploratory direction for wearable and assistive systems.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">✦</span>
+          <h3>Astro Systems</h3>
+          <p>Space-inspired engineering, systems design and future concepts.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section section-shell research-section" id="research">
+      <div class="section-heading reveal">
+        <span class="section-index">05 — EXPERIMENTATION & EXPLORATION</span>
+        <h2>Under <span class="gradient-text">research.</span></h2>
+        <p class="section-description">
+          Not every idea is a finished product. Some need research,
+          simulation and careful validation before they can go further.
+        </p>
+      </div>
+
+      <article class="research-panel reveal">
+        <div class="research-visual">
+          <div class="research-radar">
+            <div class="radar-ring ring-a"></div>
+            <div class="radar-ring ring-b"></div>
+            <div class="radar-ring ring-c"></div>
+            <div class="radar-sweep"></div>
+            <span class="radar-center"></span>
+          </div>
+          <span class="research-visual-label">R&D / 001</span>
+        </div>
+
+        <div class="research-copy">
+          <div class="project-meta">
+            <span>PROPULSION & AEROSPACE</span>
+            <span class="tag tag-research">UNDER RESEARCH</span>
+          </div>
+
+          <h3>Jet Technology</h3>
+          <p>
+            An exploratory research direction focused on understanding
+            jet propulsion principles, aircraft performance and the
+            engineering challenges of high-speed flight.
+          </p>
+
+          <div class="research-topics">
+            <span>Propulsion fundamentals</span>
+            <span>Flight simulation</span>
+            <span>Thermal & material constraints</span>
+            <span>High-speed aerodynamics</span>
+          </div>
+
+          <p class="muted-small">
+            This is a research topic, not a claim of a completed jet engine
+            or operational jet-powered aircraft. Initial work can focus on
+            theory, simulation, safety and feasibility.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- MILESTONES -->
+    <section class="section section-shell milestones-section" id="milestones">
+      <div class="section-heading reveal">
+        <span class="section-index">06 — MILESTONES</span>
+        <h2>Progress is built<br><span class="muted">one challenge at a time.</span></h2>
+      </div>
+
+      <div class="milestone-grid">
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">✳</div>
+          <span class="milestone-category">RECOGNITION</span>
+          <h3>UDAAN</h3>
+          <p>
+            A milestone in AutoMagika's journey of innovation and
+            student-led engineering.
+          </p>
+          <span class="milestone-index">MILESTONE / 01</span>
+        </article>
+
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">⌁</div>
+          <span class="milestone-category">AEROSPACE</span>
+          <h3>The DRACO Exhibition</h3>
+          <p>
+            Showcasing the DRACO aircraft project and its engineering
+            direction through a dedicated exhibition.
+          </p>
+          <span class="milestone-index">MILESTONE / 02</span>
+        </article>
+
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">◇</div>
+          <span class="milestone-category">TECHNOLOGY</span>
+          <h3>TCIS Technothon</h3>
+          <p>
+            A technology milestone in the team's experience of
+            presenting and developing innovative ideas.
+          </p>
+          <span class="milestone-index">MILESTONE / 03</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-shell contact-section" id="contact">
+      <div class="contact-panel reveal">
+        <div class="contact-copy">
+          <span class="section-index">07 — GET IN TOUCH</span>
+          <h2>Have an idea?<br><span class="gradient-text">Let's engineer it.</span></h2>
+          <p>
+            Interested in robotics, aerospace, intelligent systems or
+            collaborative engineering? Start a conversation with AutoMagika.
+          </p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label for="contactName">Name</label>
+          <input id="contactName" name="name" type="text"
+            placeholder="Your name" required>
+
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="email" type="email"
+            placeholder="you@example.com" required>
+
+          <label for="contactMessage">What would you like to discuss?</label>
+          <textarea id="contactMessage" name="message" rows="4"
+            placeholder="Tell us about your idea..." required></textarea>
+
+          <button class="button button-primary" type="submit">
+            Prepare message <span aria-hidden="true">↗</span>
+          </button>
+
+          <p class="form-note">
+            Demo form: it prepares an email in your email application.
+            It does not send or store messages on this website.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#home" class="brand footer-brand">
+      <span class="brand-mark">A<span>M</span></span>
+      <span class="brand-copy">
+        <strong>AutoMagika</strong>
+        <small>INDUSTRIES</small>
+      </span>
+    </a>
+
+    <p>Built with curiosity. Designed for what's next.</p>
+
+    <div class="footer-right">
+      <span>© <span id="currentYear">2026</span> AutoMagika Industries</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <!-- MAGIK CHATBOT -->
+  <div class="magik-widget" id="magikWidget">
+    <section class="magik-panel" id="magikPanel"
+      aria-label="Chat with Magik" hidden>
+      <div class="magik-header">
+        <div class="magik-avatar" aria-hidden="true">
+          <span>✳</span>
+        </div>
+
+        <div class="magik-heading">
+          <strong>Magik</strong>
+          <span><i class="status-dot"></i> AutoMagika assistant</span>
+        </div>
+
+        <button class="magik-close" id="magikClose"
+          aria-label="Close Magik chat">×</button>
+      </div>
+
+      <div class="magik-messages" id="magikMessages"
+        aria-live="polite" aria-relevant="additions">
+        <div class="chat-message bot-message">
+          Hey! I'm Magik, the AutoMagika website assistant. Ask me about
+          DRACO-F22, our future projects or what we're researching.
+        </div>
+      </div>
+
+      <div class="magik-suggestions">
+        <button type="button" data-question="Tell me about DRACO-F22">DRACO-F22</button>
+        <button type="button" data-question="What is AirOracle?">AirOracle</button>
+        <button type="button" data-question="What is under research?">Research</button>
+      </div>
+
+      <form class="magik-input-row" id="magikForm">
+        <label class="sr-only" for="magikInput">Message Magik</label>
+        <input id="magikInput" name="message" type="text"
+          placeholder="Ask Magik something..." autocomplete="off" required>
+        <button type="submit" aria-label="Send message">↑</button>
+      </form>
+
+      <div class="magik-disclaimer">A lightweight scripted assistant · No AI backend connected</div>
+    </section>
+
+    <button class="magik-launcher" id="magikLauncher"
+      aria-label="Open Magik assistant" aria-expanded="false"
+      aria-controls="magikPanel">
+      <span class="magik-launcher-icon" aria-hidden="true">✳</span>
+      <span class="magik-launcher-label">Ask Magik</span>
+      <span class="magik-launcher-pulse" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- SIGN-IN / SIGN-UP DEMO MODAL -->
+  <div class="modal-backdrop" id="authModal" hidden>
+    <section class="auth-modal" role="dialog"
+      aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="authClose"
+        aria-label="Close dialog">×</button>
+
+      <div class="auth-logo">A<span>M</span></div>
+      <span class="section-index">AUTOMAGIKA ACCOUNT</span>
+      <h2 id="authTitle">Welcome aboard.</h2>
+      <p class="auth-description" id="authDescription">
+        This is a front-end preview of the account experience.
+      </p>
+
+      <form id="authForm">
+        <label for="authEmail">Email address</label>
+        <input id="authEmail" name="email" type="email"
+          placeholder="you@example.com" required>
+
+        <label for="authPassword">Password</label>
+        <input id="authPassword" name="password" type="password"
+          placeholder="Demo only — do not use a real password"
+          minlength="8" required>
+
+        <button class="button button-primary auth-submit" type="submit">
+          Continue <span aria-hidden="true">↗</span>
+        </button>
+        
+        <button type="button" id="googleSignInBtn" class="button button-primary">
+        Continue with Google
+        </button>
+      </form>
+
+      <p class="form-note">
+        Prototype only. No credentials are transmitted or saved.
+        Real accounts require a secure authentication provider.
+      </p>
+
+      <button class="auth-switch" id="authSwitch" type="button">
+        Need an account? Switch to sign up
+      </button>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
