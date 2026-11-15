@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080c12">
+
+  <meta name="description"
+    content="AutoMagika Industries — student-led robotics, aerospace and intelligent systems. Engineering ideas into reality.">
+
+  <title>AutoMagika Industries | Engineering Beyond Limits</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="AutoMagika home">
+      <span class="brand-mark">A<span>M</span></span>
+      <span class="brand-copy">
+        <strong>AutoMagika</strong>
+        <small>INDUSTRIES</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#draco">DRACO-F22</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="button button-ghost button-small" id="signInBtn">
+        Sign in
+      </button>
+      <button class="button button-primary button-small" id="signUpBtn">
+        Join us <span aria-hidden="true">↗</span>
+      </button><div class="profile-menu" id="profileMenu" hidden>
+  <button id="profileTrigger" class="profile-trigger button button-ghost button-small" type="button">
+    <img id="profileAvatar" src="" alt="">
+    <span id="profileTriggerName">Your Profile</span>
+    <span aria-hidden="true">⌄</span>
+  </button>
+
+  <div class="profile-dropdown" id="profileDropdown" hidden>
+    <div class="profile-details">
+      <img id="profileDropdownAvatar" src="" alt="">
+      <div>
+        <strong id="profileName"></strong>
+        <span id="profileEmail"></span>
+      </div>
+    </div>
+    <button id="signOutBtn" class="button button-ghost button-small" type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          INDEPENDENT ENGINEERING INITIATIVE
+        </div>
+
+        <h1>
+          We don't just<br>
+          imagine the <span class="gradient-text">future.</span><br>
+          We engineer it.
+        </h1>
+
+        <p class="hero-description">
+          From robotics and intelligent systems to experimental aerospace
+          concepts, AutoMagika turns ambitious ideas into engineering projects.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#draco" class="button button-primary">
+            Explore DRACO <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#projects" class="button button-ghost">
+            Explore our projects
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-line"></span>
+          Built on curiosity. Driven by engineering.
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="hero-core">
+          <span class="core-symbol">A<span>M</span></span>
+          <span class="core-caption">ENGINEERING<br>THE UNEXPECTED</span>
+        </div>
+
+        <div class="floating-label label-top">
+          <span class="mini-dot"></span>
+          AEROSPACE SYSTEMS
+        </div>
+
+        <div class="floating-label label-bottom">
+          <span class="mini-dot"></span>
+          IDEAS → PROTOTYPES
+        </div>
+
+        <div class="coordinate coordinate-top">12° 58' N</div>
+        <div class="coordinate coordinate-bottom">AUTOMAGIKA / 001</div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>01 / INNOVATION</span>
+        <span>ROBOTICS · AEROSPACE · INTELLIGENCE</span>
+        <a href="#about">SCROLL TO EXPLORE ↓</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-shell" id="about">
+      <div class="section-heading reveal">
+        <span class="section-index">01 — WHO WE ARE</span>
+        <h2>Small team.<br><span class="muted">Big engineering ambitions.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-main reveal">
+          <p class="large-copy">
+            AutoMagika Industries is a student-led initiative exploring
+            the intersection of <span class="accent">aerospace, robotics,
+            intelligent systems and experimental design.</span>
+          </p>
+
+          <p class="body-copy">
+            We believe a concept becomes meaningful when it is challenged,
+            tested, improved and built. Our work ranges from physical
+            prototypes to software concepts and research-driven projects.
+          </p>
+
+          <p class="body-copy">
+            Every project is another opportunity to learn something new,
+            solve a difficult problem and push our capabilities further.
+          </p>
+        </div>
+
+        <div class="principles reveal">
+          <article class="principle-card">
+            <span class="principle-number">01</span>
+            <div>
+              <h3>Build</h3>
+              <p>Turn ideas into prototypes, models and working systems.</p>
+            </div>
+            <span class="principle-icon">↗</span>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">02</span>
+            <div>
+              <h3>Experiment</h3>
+              <p>Learn through testing, iteration and honest evaluation.</p>
+            </div>
+            <span class="principle-icon">⌁</span>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">03</span>
+            <div>
+              <h3>Imagine</h3>
+              <p>Explore ambitious technologies while respecting what is feasible.</p>
+            </div>
+            <span class="principle-icon">✳</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAGSHIP DRACO -->
+    <section class="section section-shell draco-section" id="draco">
+      <div class="section-heading reveal">
+        <span class="section-index">02 — FLAGSHIP AEROSPACE PROJECT</span>
+        <div class="heading-with-tag">
+          <h2>DRACO<span class="accent">-F22</span> Raptor</h2>
+          <span class="tag tag-live">FLAGSHIP PROJECT</span>
+        </div>
+        <p class="section-description">
+          A compact experimental aircraft project focused on RC flight,
+          control systems, electronics integration and iterative design.
+        </p>
+      </div>
+
+      <div class="draco-panel reveal">
+        <div class="draco-topline">
+          <span>DRACO-F22 / AIRFRAME OVERVIEW</span>
+          <span>CONCEPTUAL SCHEMATIC</span>
+        </div>
+
+        <div class="aircraft-stage">
+          <div class="aircraft-grid" aria-hidden="true"></div>
+
+          <div class="aircraft-callout callout-left">
+            <span class="callout-line"></span>
+            <span>WING PLANFORM</span>
+          </div>
+
+          <div class="aircraft-callout callout-right">
+            <span class="callout-line"></span>
+            <span>TWIN-TAIL CONFIGURATION</span>
+          </div>
+
+          <!-- Original stylized F-22-inspired silhouette.
+               This is an illustrative top view, NOT a technical blueprint. -->
+          <svg class="aircraft-svg" viewBox="0 0 700 430"
+            role="img" aria-labelledby="f22Title f22Desc">
+            <title id="f22Title">F-22-inspired aircraft top-view schematic</title>
+            <desc id="f22Desc">
+              A stylized top-down stealth fighter silhouette with a pointed
+              nose, swept wings, twin engine bodies and two outward-canted tails.
+              Conceptual illustration, not a manufacturing drawing.
+            </desc>
+
+            <defs>
+              <linearGradient id="planeFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1b3947"/>
+                <stop offset="50%" stop-color="#10222e"/>
+                <stop offset="100%" stop-color="#0b141e"/>
+              </linearGradient>
+
+              <linearGradient id="planeEdge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#46e5ff"/>
+                <stop offset="50%" stop-color="#a1f4ff"/>
+                <stop offset="100%" stop-color="#46e5ff"/>
+              </linearGradient>
+
+              <filter id="planeGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <g class="plane-outline" stroke="url(#planeEdge)"
+              stroke-width="1.6" stroke-linejoin="round"
+              stroke-linecap="round" filter="url(#planeGlow)">
+
+              <!-- Main wing and fuselage silhouette -->
+              <path fill="url(#planeFill)" d="
+                M350 20
+                L362 56
+                L380 92
+                L485 125
+                L625 203
+                L630 218
+                L500 207
+                L432 241
+                L410 290
+                L430 335
+                L400 328
+                L369 292
+                L350 282
+                L331 292
+                L300 328
+                L270 335
+                L290 290
+                L268 241
+                L200 207
+                L70 218
+                L75 203
+                L215 125
+                L320 92
+                L338 56
+                Z"/>
+
+              <!-- Center fuselage -->
+              <path fill="#183442" d="
+                M350 20
+                L363 91
+                L377 144
+                L366 219
+                L359 272
+                L350 291
+                L341 272
+                L334 219
+                L323 144
+                L337 91
+                Z"/>
+
+              <!-- Canopy -->
+              <path fill="#204e60" d="
+                M350 59
+                L362 92
+                L358 123
+                L350 133
+                L342 123
+                L338 92
+                Z"/>
+
+              <!-- Twin engine nacelles -->
+              <path fill="#0b1721" d="
+                M301 150 L322 166 L331 231
+                L316 256 L300 218 Z"/>
+              <path fill="#0b1721" d="
+                M399 150 L378 166 L369 231
+                L384 256 L400 218 Z"/>
+
+              <!-- Engine outlets -->
+              <path fill="#071018" d="M301 220 L316 256 L306 267 L292 234 Z"/>
+              <path fill="#071018" d="M399 220 L384 256 L394 267 L408 234 Z"/>
+
+              <!-- Horizontal tail surfaces -->
+              <path fill="#132a36" d="
+                M324 259 L277 302 L259 327 L309 310 L341 284 Z"/>
+              <path fill="#132a36" d="
+                M376 259 L423 302 L441 327 L391 310 L359 284 Z"/>
+
+              <!-- Twin outward-canted vertical tails -->
+              <path fill="#214555" d="
+                M304 264 L269 291 L246 330 L280 315 L315 283 Z"/>
+              <path fill="#214555" d="
+                M396 264 L431 291 L454 330 L420 315 L385 283 Z"/>
+
+              <!-- Leading-edge and control-surface detail -->
+              <path fill="none" d="M350 28 L350 280"/>
+              <path fill="none" d="M215 129 L300 208"/>
+              <path fill="none" d="M485 129 L400 208"/>
+              <path fill="none" d="M93 211 L201 201 L269 235"/>
+              <path fill="none" d="M607 211 L499 201 L431 235"/>
+              <path fill="none" d="M302 176 L332 208"/>
+              <path fill="none" d="M398 176 L368 208"/>
+            </g>
+
+            <!-- Symmetry axis -->
+            <line x1="350" y1="8" x2="350" y2="408"
+              stroke="#65eaff" stroke-width="0.8"
+              stroke-dasharray="4 8" opacity="0.45"/>
+          </svg>
+
+          <div class="schematic-caption">
+            <span>TOP VIEW / ILLUSTRATIVE</span>
+            <span>NOT AN ENGINEERING BLUEPRINT</span>
+          </div>
+        </div>
+
+        <div class="draco-details">
+          <div class="draco-description">
+            <span class="mini-label">THE PROJECT</span>
+            <h3>Inspired by stealth.<br>Built to learn.</h3>
+            <p>
+              DRACO-F22 is AutoMagika's experimental RC aircraft platform.
+              Its development explores airframe design, onboard electronics,
+              servo actuation, propulsion integration and flight-control
+              challenges.
+            </p>
+            <p class="muted-small">
+              The schematic above is an original F-22-inspired illustration,
+              not a dimensionally accurate Lockheed Martin blueprint or
+              a representation of the exact DRACO airframe.
+            </p>
+          </div>
+
+          <div class="draco-specs">
+            <div class="spec-row">
+              <span>Platform</span>
+              <strong>RC aircraft</strong>
+            </div>
+            <div class="spec-row">
+              <span>Design inspiration</span>
+              <strong>F-22 Raptor</strong>
+            </div>
+            <div class="spec-row">
+              <span>Focus</span>
+              <strong>Airframe & electronics</strong>
+            </div>
+            <div class="spec-row">
+              <span>Development</span>
+              <strong>Prototype iteration</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-shell" id="projects">
+      <div class="section-heading reveal">
+        <span class="section-index">03 — PROJECT PORTFOLIO</span>
+        <h2>Ideas in <span class="gradient-text">motion.</span></h2>
+        <p class="section-description">
+          Different problems. Different disciplines. One engineering mindset.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card project-featured reveal">
+          <div class="project-visual visual-draco">
+            <span class="visual-index">AM / 001</span>
+            <div class="visual-rings"></div>
+            <span class="visual-monogram">D<span>22</span></span>
+            <span class="visual-caption">AEROSPACE SYSTEMS</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>01 / AEROSPACE</span>
+              <span class="tag">FLAGSHIP</span>
+            </div>
+            <h3>DRACO-F22 Raptor</h3>
+            <p>
+              An experimental RC aircraft platform exploring airframe
+              engineering and electronic control systems.
+            </p>
+            <a class="text-link" href="#draco">
+              Explore project <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-cleanx">
+            <span class="visual-index">AM / 002</span>
+            <div class="cleanx-orbit"></div>
+            <span class="visual-monogram">C<span>X</span></span>
+            <span class="visual-caption">CLEAN TECHNOLOGY</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>02 / INNOVATION</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>CleanX</h3>
+            <p>
+              An innovation project developed as part of AutoMagika's
+              broader exploration of practical engineering ideas.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-arc">
+            <span class="visual-index">AM / 003</span>
+            <div class="arc-symbol">⌁</div>
+            <span class="visual-caption">SYSTEMS & AUTOMATION</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>03 / SYSTEMS</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>ARC</h3>
+            <p>
+              A project within the AutoMagika portfolio focused on
+              engineering experimentation and system design.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-cardio">
+            <span class="visual-index">AM / 004</span>
+            <svg class="pulse-svg" viewBox="0 0 300 100"
+              role="img" aria-label="Abstract pulse waveform">
+              <path d="M0 53 L68 53 L88 35 L110 76 L135 12 L157 88 L180 53 L300 53"
+                fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M0 53 L68 53 L88 35 L110 76 L135 12 L157 88 L180 53 L300 53"
+                fill="none" stroke="currentColor" stroke-width="8" opacity="0.12"/>
+            </svg>
+            <span class="visual-caption">HEALTH-TECH CONCEPT</span>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span>04 / HEALTH TECH</span>
+              <span class="tag">PROJECT</span>
+            </div>
+            <h3>CardioGuard</h3>
+            <p>
+              A health-technology concept exploring how engineering
+              and connected systems might support monitoring.
+            </p>
+            <span class="text-link text-link-muted">
+              Project archive <span>↗</span>
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FUTURE PROJECTS -->
+    <section class="section section-shell future-section" id="future">
+      <div class="section-heading reveal">
+        <span class="section-index">04 — WHAT COMES NEXT</span>
+        <h2>The next generation<br>starts as an <span class="gradient-text">idea.</span></h2>
+      </div>
+
+      <div class="future-grid">
+
+        <article class="future-card future-sukhoi reveal">
+          <div class="future-art">
+            <span class="future-number">FUTURE PROJECT / 01</span>
+            <svg class="sukhoi-svg" viewBox="0 0 420 220"
+              role="img" aria-label="Stylized twin-tail fighter aircraft concept">
+              <g fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linejoin="round">
+                <path d="M210 12 L222 55 L397 137 L405 151 L273 144
+                  L245 166 L235 197 L213 184 L210 171 L207 184
+                  L185 197 L175 166 L147 144 L15 151 L23 137
+                  L198 55 Z" fill="rgba(100,220,255,.09)"/>
+                <path d="M210 12 L210 171"/>
+                <path d="M198 55 L147 144"/>
+                <path d="M222 55 L273 144"/>
+                <path d="M185 155 L156 185 L179 180"/>
+                <path d="M235 155 L264 185 L241 180"/>
+                <path d="M197 88 L181 139"/>
+                <path d="M223 88 L239 139"/>
+              </g>
+            </svg>
+            <span class="future-stamp">CONCEPT</span>
+          </div>
+          <div class="future-content">
+            <span class="mini-label">A NEW DESIGN DIRECTION</span>
+            <h3>Draco Sukhoi</h3>
+            <p>
+              The next evolution of the DRACO idea: a future aircraft concept
+              that reimagines the familiar platform through a Sukhoi-inspired,
+              Soviet-style design language, with bold surfaces and a distinctive
+              twin-tail silhouette.
+            </p>
+            <span class="tag tag-future">FUTURE PROJECT</span>
+          </div>
+        </article>
+
+        <article class="future-card future-airoracle reveal">
+          <div class="future-art">
+            <span class="future-number">FUTURE PROJECT / 02</span>
+            <div class="sim-scene" aria-hidden="true">
+              <div class="sim-horizon"></div>
+              <div class="sim-grid"></div>
+              <div class="sim-target">+</div>
+              <div class="sim-readout">FLIGHT MODEL / SIMULATION</div>
+            </div>
+            <span class="future-stamp">IN DEVELOPMENT</span>
+          </div>
+          <div class="future-content">
+            <span class="mini-label">FLIGHT SIMULATION VISION</span>
+            <h3>AirOracle</h3>
+            <p class="airoracle-tagline">from the ‘so called idea club’</p>
+            <p>
+              A planned flight-simulation concept exploring aircraft from
+              RC planes and commercial airliners to fighter aircraft.
+              The long-term vision spans electric BLDC propulsion and
+              high-speed, supersonic flight concepts through simulation
+              and progressively more advanced models.
+            </p>
+            <span class="tag tag-future">FUTURE PROJECT</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="future-mini-grid">
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">⌘</span>
+          <h3>Rover Systems</h3>
+          <p>Exploring mobile robotics, sensing and autonomous navigation.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">⬡</span>
+          <h3>ExoMagika</h3>
+          <p>An exploratory direction for wearable and assistive systems.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+
+        <article class="mini-project reveal">
+          <span class="mini-project-icon">✦</span>
+          <h3>Astro Systems</h3>
+          <p>Space-inspired engineering, systems design and future concepts.</p>
+          <span class="tag tag-future">CONCEPT</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section section-shell research-section" id="research">
+      <div class="section-heading reveal">
+        <span class="section-index">05 — EXPERIMENTATION & EXPLORATION</span>
+        <h2>Under <span class="gradient-text">research.</span></h2>
+        <p class="section-description">
+          Not every idea is a finished product. Some need research,
+          simulation and careful validation before they can go further.
+        </p>
+      </div>
+
+      <article class="research-panel reveal">
+        <div class="research-visual">
+          <div class="research-radar">
+            <div class="radar-ring ring-a"></div>
+            <div class="radar-ring ring-b"></div>
+            <div class="radar-ring ring-c"></div>
+            <div class="radar-sweep"></div>
+            <span class="radar-center"></span>
+          </div>
+          <span class="research-visual-label">R&D / 001</span>
+        </div>
+
+        <div class="research-copy">
+          <div class="project-meta">
+            <span>PROPULSION & AEROSPACE</span>
+            <span class="tag tag-research">UNDER RESEARCH</span>
+          </div>
+
+          <h3>Jet Technology</h3>
+          <p>
+            An exploratory research direction focused on understanding
+            jet propulsion principles, aircraft performance and the
+            engineering challenges of high-speed flight.
+          </p>
+
+          <div class="research-topics">
+            <span>Propulsion fundamentals</span>
+            <span>Flight simulation</span>
+            <span>Thermal & material constraints</span>
+            <span>High-speed aerodynamics</span>
+          </div>
+
+          <p class="muted-small">
+            This is a research topic, not a claim of a completed jet engine
+            or operational jet-powered aircraft. Initial work can focus on
+            theory, simulation, safety and feasibility.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- MILESTONES -->
+    <section class="section section-shell milestones-section" id="milestones">
+      <div class="section-heading reveal">
+        <span class="section-index">06 — MILESTONES</span>
+        <h2>Progress is built<br><span class="muted">one challenge at a time.</span></h2>
+      </div>
+
+      <div class="milestone-grid">
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">✳</div>
+          <span class="milestone-category">RECOGNITION</span>
+          <h3>UDAAN</h3>
+          <p>
+            A milestone in AutoMagika's journey of innovation and
+            student-led engineering.
+          </p>
+          <span class="milestone-index">MILESTONE / 01</span>
+        </article>
+
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">⌁</div>
+          <span class="milestone-category">AEROSPACE</span>
+          <h3>The DRACO Exhibition</h3>
+          <p>
+            Showcasing the DRACO aircraft project and its engineering
+            direction through a dedicated exhibition.
+          </p>
+          <span class="milestone-index">MILESTONE / 02</span>
+        </article>
+
+        <article class="milestone-card reveal">
+          <div class="milestone-icon">◇</div>
+          <span class="milestone-category">TECHNOLOGY</span>
+          <h3>TCIS Technothon</h3>
+          <p>
+            A technology milestone in the team's experience of
+            presenting and developing innovative ideas.
+          </p>
+          <span class="milestone-index">MILESTONE / 03</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-shell contact-section" id="contact">
+      <div class="contact-panel reveal">
+        <div class="contact-copy">
+          <span class="section-index">07 — GET IN TOUCH</span>
+          <h2>Have an idea?<br><span class="gradient-text">Let's engineer it.</span></h2>
+          <p>
+            Interested in robotics, aerospace, intelligent systems or
+            collaborative engineering? Start a conversation with AutoMagika.
+          </p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label for="contactName">Name</label>
+          <input id="contactName" name="name" type="text"
+            placeholder="Your name" required>
+
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="email" type="email"
+            placeholder="you@example.com" required>
+
+          <label for="contactMessage">What would you like to discuss?</label>
+          <textarea id="contactMessage" name="message" rows="4"
+            placeholder="Tell us about your idea..." required></textarea>
+
+          <button class="button button-primary" type="submit">
+            Prepare message <span aria-hidden="true">↗</span>
+          </button>
+
+          <p class="form-note">
+            Demo form: it prepares an email in your email application.
+            It does not send or store messages on this website.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#home" class="brand footer-brand">
+      <span class="brand-mark">A<span>M</span></span>
+      <span class="brand-copy">
+        <strong>AutoMagika</strong>
+        <small>INDUSTRIES</small>
+      </span>
+    </a>
+
+    <p>Built with curiosity. Designed for what's next.</p>
+
+    <div class="footer-right">
+      <span>© <span id="currentYear">2026</span> AutoMagika Industries</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <!-- MAGIK CHATBOT -->
+  <div class="magik-widget" id="magikWidget">
+    <section class="magik-panel" id="magikPanel"
+      aria-label="Chat with Magik" hidden>
+      <div class="magik-header">
+        <div class="magik-avatar" aria-hidden="true">
+          <span>✳</span>
+        </div>
+
+        <div class="magik-heading">
+          <strong>Magik</strong>
+          <span><i class="status-dot"></i> AutoMagika assistant</span>
+        </div>
+
+        <button class="magik-close" id="magikClose"
+          aria-label="Close Magik chat">×</button>
+      </div>
+
+      <div class="magik-messages" id="magikMessages"
+        aria-live="polite" aria-relevant="additions">
+        <div class="chat-message bot-message">
+          Hey! I'm Magik, the AutoMagika website assistant. Ask me about
+          DRACO-F22, our future projects or what we're researching.
+        </div>
+      </div>
+
+      <div class="magik-suggestions">
+        <button type="button" data-question="Tell me about DRACO-F22">DRACO-F22</button>
+        <button type="button" data-question="What is AirOracle?">AirOracle</button>
+        <button type="button" data-question="What is under research?">Research</button>
+      </div>
+
+      <form class="magik-input-row" id="magikForm">
+        <label class="sr-only" for="magikInput">Message Magik</label>
+        <input id="magikInput" name="message" type="text"
+          placeholder="Ask Magik something..." autocomplete="off" required>
+        <button type="submit" aria-label="Send message">↑</button>
+      </form>
+
+      <div class="magik-disclaimer">A lightweight scripted assistant · No AI backend connected</div>
+    </section>
+
+    <button class="magik-launcher" id="magikLauncher"
+      aria-label="Open Magik assistant" aria-expanded="false"
+      aria-controls="magikPanel">
+      <span class="magik-launcher-icon" aria-hidden="true">✳</span>
+      <span class="magik-launcher-label">Ask Magik</span>
+      <span class="magik-launcher-pulse" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- SIGN-IN / SIGN-UP DEMO MODAL -->
+  <div class="modal-backdrop" id="authModal" hidden>
+    <section class="auth-modal" role="dialog"
+      aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="authClose"
+        aria-label="Close dialog">×</button>
+
+      <div class="auth-logo">A<span>M</span></div>
+      <span class="section-index">AUTOMAGIKA ACCOUNT</span>
+      <h2 id="authTitle">Welcome aboard.</h2>
+      <p class="auth-description" id="authDescription">
+        This is a front-end preview of the account experience.
+      </p>
+
+      <form id="authForm">
+        <label for="authEmail">Email address</label>
+        <input id="authEmail" name="email" type="email"
+          placeholder="you@example.com" required>
+
+        <label for="authPassword">Password</label>
+        <input id="authPassword" name="password" type="password"
+          placeholder="Demo only — do not use a real password"
+          minlength="8" required>
+
+        <button class="button button-primary auth-submit" type="submit">
+          Continue <span aria-hidden="true">↗</span>
+        </button>
+        
+        <button type="button" id="googleSignInBtn" class="button button-primary">
+        Continue with Google
+        </button>
+      </form>
+
+      <p class="form-note">
+        Prototype only. No credentials are transmitted or saved.
+        Real accounts require a secure authentication provider.
+      </p>
+
+      <button class="auth-switch" id="authSwitch" type="button">
+        Need an account? Switch to sign up
+      </button>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
